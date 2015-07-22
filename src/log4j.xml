@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- 
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss} %d{ISO8601} %X{sessionId} %-5.5p [%c@%t]%M(%L) %m%n" />
+			 -->
+			<param name="ConversionPattern" value="%d{ISO8601} %X{sessionId} %-5.5p [%c@%t]%M(%L) %m%n" />
+		</layout>
+	</appender>
+	<appender name="RFA" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/var/log/userLogin.drfa.log" />
+		<param name="Append" value="true" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %X{sessionId} %-5.5p [%c@%t]%M(%L) %m%n" />
+		</layout>
+	</appender>
+	<appender name="RFAx" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/var/log/userLogin.rfa.log" />
+		<param name="Append" value="true" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="MaxFileSize" value="1000MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">			
+			<param name="ConversionPattern" value="%d{ISO8601} %X{sessionId} %-5.5p [%c@%t]%M(%L) %m%n" />
+		</layout>
+	</appender>
+	<appender name="RFASCHEDULE" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/var/log/userLogin.schedule.rfa.log" />
+		<param name="Append" value="true" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="MaxFileSize" value="100000KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %X{sessionId} %-5.5p [%c@%t]%M(%L) %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- _____________________________________________________________________ -->
+	<category name="org.tuckey.web.filters.urlrewrite." additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org" additivity="false">
+		<priority value="ERROR" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.hibernate" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.apache.jsp" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.springframework.security" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.springframework.security.userdetails.jdbc" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.springframework.context.support" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<category name="org.springframework.security.event.authentication" additivity="false">
+		<priority value="ERROR" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<!-- _____________________________________________________________________ 
+	<category name="org.hibernate.cache" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	-->
+	<!-- _____________________________________________________________________ -->
+	<category name="leon" additivity="true">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<!-- _____________________________________________________________________ -->
+	<category name="test" additivity="true">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<!-- _____________________________________________________________________ -->
+	<category name="util" additivity="true">
+		<priority value="DEBUG" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	<!-- _____________________________________________________________________ -->
+	<category name="com" additivity="false">
+		<priority value="INFO" />
+		<appender-ref ref="RFA" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+
+
+
+	<!-- _____________________________________________________________________ -->
+	<root>
+		<priority value="INFO" />
+		<!-- 
+		<appender-ref ref="STDOUT" />
+		 -->
+	</root>
+</log4j:configuration>

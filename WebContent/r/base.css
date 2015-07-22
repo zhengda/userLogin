@@ -1,0 +1,70 @@
+@charset "utf-8";
+body,div,iframe,ol,dl,dt,dd,dl,h1,h2,h3,h4,table,th,td,input,button,select,textarea{margin:2px;border:1;padding:0;}
+input,button,select,textarea{margin:2px;padding:2px;}
+iframe{margin:0px;scrolling:no;frameborder:0;cellspacing:0;border-width:0;border:0;}
+body{font-family:AR PL UMING TW, "細明體", mingliu, Courier, monospace;font-size:17px;}
+a{background-color:transparent;text-decoration:underline;}
+img{border:0px solid black;max-width:100%;padding:1px 1px 1px 1px;vertical-align:middle;}
+del{color:red;text-decoration:line-through;text-line-through-color:red;text-line-through-style:double;text-line-through-mode:continuous;text-line-through-color:red;}
+table{align:center;font-size:15px;}
+td{word-break:keep-all;white-space:nowrap;}
+td.justify{text-align:justify;}
+td.count{text-align:right;width:10px;}
+.lf{float:left;}
+.rf{float:right;}
+.clear{clear:both;}
+#breadcrumb .main{font-size:17px;}
+#inhalt{position:absolute;height:400px;width:600px;margin:-300px 0px 0px -300px;top:50%;left:50%;text-align:center;font-weight:bold;line-height:120%;}
+#infoBox{position:absolute;height:400px;width:400px;margin:-200px 0px 0px -200px;top:50%;left:50%;text-align:left;line-height:120%;}
+#navbar{text-align:left;width:100%;}
+#navbar a{color:#000000;}
+#navbar a:hover{color:#44444;}
+#copyright{width:100%;text-align:center;align:center;}
+#copyright>span{font-size:12px;color:#777777;}
+#copyright a:link{color:#777777;}
+#copyright a:visited{color:#777777;}
+#copyright a:active{color:#777777;}
+#copyright a:hover{color:#aaaaaa;}
+#footerText{margin:0 auto;width:985px;border-top:1px solid #eee;height:15px;background-color:white;}
+#footerText p{float:left;font-size:11px;margin-left:25px;text-align:left;margin-top:20px;}
+#termsOfService{width:100%;text-align:left;}
+#termsOfService h1{color:#ffffff;}
+#termsOfService h2{color:#eeeeee;}
+#contact{width:100%;text-align:left;}
+
+li { display: list-item }
+ol, ul, dir, menu, dd  { margin-left: 40px; }
+ul, ol, dl { page-break-before: avoid; }
+
+td{vertical-align:top;}
+
+
+.bg037{background:#c0c0c0;}
+.fg030{color:#000000;}
+
+.warningMsg {
+	font-family: Verdana,taipei; 
+	font-size: 16px; 
+	font-style: normal; 
+	font-weight: bold; 
+	color: orange;
+	text-indent: 20px;
+}
+
+.errorMsg {
+	font-family: Verdana,taipei; 
+	font-size: 16px; 
+	font-style: normal; 
+	font-weight: bold; 
+	color: red;
+	text-indent: 20px;
+}
+
+.infoMsg {
+	font-family: Verdana,taipei; 
+	font-size: 16px; 
+	font-style: normal; 
+	font-weight: bold; 
+	color: green;
+	text-indent: 20px;
+}
