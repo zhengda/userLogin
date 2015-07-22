@@ -37,7 +37,7 @@
 		<to type="forward">/userEdit.jsp</to>
 	</rule>
 	<rule>
-		<from>^/userLst$</from>
+		<from>^/userList$</from>
 		<to type="forward">/userList.jsp</to>
 	</rule>
    
