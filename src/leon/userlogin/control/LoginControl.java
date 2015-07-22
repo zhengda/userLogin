@@ -45,11 +45,11 @@ public class LoginControl extends HttpServlet {
 
 		if (user != null && password != null && password.equals(user.getPassword())) {
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index");
 			return;
 		}
 
-		forward(request, response, "login.jsp");
+		forward(request, response, "login");
 	}
 
 	private void forward(HttpServletRequest aRequest, HttpServletResponse aResponse, String forwardingPage) throws ServletException, IOException {

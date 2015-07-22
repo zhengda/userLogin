@@ -137,7 +137,7 @@ public class AccessControlFilter implements Filter {
 				logger.info("ip " + ip + " is tring to access " + request.getRequestURI());
 				//response.getWriter().print("<h1>403 forbidden<br/>Not allowed to access " + request.getRequestURI());
 				response.getWriter().print(
-						"<html><head><title>Error</title></head><body><h1>403 Forbidden</h1> try <a href=\"login.jsp\" autofocus>login</a>!</body></html>");
+						"<html><head><title>Error</title></head><body><h1>403 Forbidden</h1> try <a href=\"login\" autofocus>login</a>!</body></html>");
 				return;
 			}
 		}

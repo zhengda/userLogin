@@ -39,49 +39,18 @@ body {
 </head>
 <body onunload="" id="body">
 	<div class="container">
-		<div id="inhalt">
-			<center>
-				<b> error ${javax.servlet.error.status_code}
-			</b></center>
-		</div>
-					
-		<c:if test="${requestScope['javax.servlet.error.status_code']=='404'}" >
-			<%-- shorten url 短網址用測試碼 --%>
-			<c:set var="validRedirectKey" value="false"/>
-			<c:if test="${validRedirectKey==false}">
-				<jsp:forward page="error404.html"/>
-			</c:if>
-			 <jsp:forward page="explain.jsp">
-			 	<jsp:param name="id" value='<%=request.getAttribute("javax.servlet.forward.request_uri")%>'/>
-			 	<jsp:param name="idx" value='<%=request.getAttribute("javax.servlet.error.request_uri")%>'/>
-			 	<jsp:param name="id3" value='<%=request.getAttribute("javax.servlet.error.servlet_name")%>'/>
-			 	<jsp:param name="tid" value="111"/>
-			 </jsp:forward>
-		</c:if>		
-
-		<!-- 
+		explain ${requestScope["javax.servlet.forward.request_uri"]}
 		
-		<ul>
-			<li>Exception: <c:out value="${requestScope['javax.servlet.error.exception']}" /></li>
-			<li>Exception type: <c:out value="${requestScope['javax.servlet.error.exception_type']}" /></li>
-			<li>Exception message: <c:out value="${requestScope['javax.servlet.error.message']}" /></li>
-			<li>Request URI: <c:out value="${requestScope['javax.servlet.error.request_uri']}" /></li>
-			<li>Servlet name: <c:out value="${requestScope['javax.servlet.error.servlet_name']}" /></li>
-			<li>Status code: <c:out value="${requestScope['javax.servlet.error.status_code']}" /></li>
-		</ul>
-		<ul>
-			<li>Timestamp: <fmt:formatDate value="${date}" type="both" dateStyle="long" timeStyle="long" /></li>
-			<li>User agent: <c:out value="${header['user-agent']}" /></li>
-		</ul>
-		<div>
-			printStackTrace=
-			<%--
-			<%if (exception != null) {
-					exception.printStackTrace(new java.io.PrintWriter(out));
-			}%>	
-			--%>
-		</div>
+		<%-- shorten url 短網址用測試碼 --%>
+		<c:set var="validRedirectKey" value="true"/>
+		<c:if test="${validRedirectKey==false}">
+			<jsp:forward page="error404.html"/>
+		</c:if>
+		<jsp:forward page="index.jsp">
+			<jsp:param name="id2" value='<%=request.getAttribute("javax.servlet.forward.request_uri")%>'/>
+			<jsp:param name="tid" value="11132"/> 
+		</jsp:forward>
 		
-		-->
 	</div>
+
 <script type="text/javascript" src='r/ga.js' ></script></body></html>

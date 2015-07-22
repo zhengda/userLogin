@@ -54,11 +54,11 @@ public class UserControl extends HttpServlet {
 				java.util.Collection<User> users = userDao.listAll();
 				//logger.debug("users="+users);
 				request.setAttribute("users", users);
-				forward(request, response, "userList.jsp");
+				forward(request, response, "userList");
 				return;
 				//break;
 			case create: {
-				forward(request, response, "userCreate.jsp");
+				forward(request, response, "userCreate");
 				return;
 			}
 			case save: {
@@ -79,7 +79,7 @@ public class UserControl extends HttpServlet {
 					if (user != null) {
 						request.setAttribute("target", user);
 					}
-					forward(request, response, "userCreate.jsp");
+					forward(request, response, "userCreate");
 					return;
 				}
 				forward(request, response, "userControl?action=list");
@@ -91,12 +91,12 @@ public class UserControl extends HttpServlet {
 				if (user != null) {
 					request.setAttribute("target", user);
 				}
-				forward(request, response, "userEdit.jsp");
+				forward(request, response, "userEdit");
 				return;
 			}
 			case update: {
 				if (org.apache.commons.lang.StringUtils.equals(username, "sysadmin")) {
-					request.setAttribute("warningMsg", "not allow you to modify/delete " + username);
+					request.setAttribute("warningMsg", "You are not allowed to modify " + username);
 					forward(request, response, "userControl?action=list");
 					return;
 				}
@@ -127,7 +127,7 @@ public class UserControl extends HttpServlet {
 					if (user != null) {
 						request.setAttribute("target", user);
 					}
-					forward(request, response, "userEdit.jsp");
+					forward(request, response, "userEdit");
 					return;
 				}
 				forward(request, response, "userControl?action=list");
@@ -135,7 +135,7 @@ public class UserControl extends HttpServlet {
 			}
 			case delete: {
 				if (org.apache.commons.lang.StringUtils.equals(username, "sysadmin")) {
-					request.setAttribute("warningMsg", "not allow you to modify/delete " + username);
+					request.setAttribute("warningMsg", "You are not allowed to delete " + username);
 					forward(request, response, "userControl?action=list");
 					return;
 				}
@@ -151,7 +151,7 @@ public class UserControl extends HttpServlet {
 			default:
 		}
 
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index");
 	}
 
 	private void forward(HttpServletRequest aRequest, HttpServletResponse aResponse, String forwardingPage) throws ServletException, IOException {

@@ -17,7 +17,7 @@
     </init-param>
     <init-param>
       <param-name>allowedURI</param-name>
-      <param-value>/login.jsp,/loginControl,/r/,/favicon.ico,/error,/api</param-value>
+      <param-value>/login,/loginControl,/r/,/favicon,/error,/api</param-value>
     </init-param>
   </filter>
   <filter-mapping>
