@@ -1,7 +1,7 @@
 import leon.filter.AccessControlFilterTest;
+import leon.userlogin.control.ApiServletTest;
 import leon.userlogin.persistence.UserDAOTest;
 import leon.util.ExpiringLRUMapTest;
-import leon.userlogin.control.ApiServletTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

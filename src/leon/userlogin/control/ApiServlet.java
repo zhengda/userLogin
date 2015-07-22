@@ -173,9 +173,11 @@ public class ApiServlet extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			OutputStream out = response.getOutputStream();
-			String body = mapper.writeValueAsString(data);
+			String body = (data == null) ? null : mapper.writeValueAsString(data);
 			logger.info("response.body=" + body);
-			out.write(body.getBytes());
+			if (body != null) {
+				out.write(body.getBytes());
+			}
 			out.flush();
 		} catch (Exception e) {
 			logger.error(e, e);
@@ -186,9 +188,11 @@ public class ApiServlet extends HttpServlet {
 	private void sendXML(HttpServletResponse response, Object data) {
 		try {
 			XMLEncoder enc = new XMLEncoder(response.getOutputStream());
-			String body = data.toString();
+			String body = (data == null) ? null : data.toString();
 			logger.info("response.body=" + body);
-			enc.writeObject(body);
+			if (body != null) {
+				enc.writeObject(body);
+			}
 			enc.close();
 		} catch (IOException e) {
 			logger.error(e, e);
@@ -199,16 +203,18 @@ public class ApiServlet extends HttpServlet {
 	private void sendHTML(HttpServletResponse response, Object data) {
 		String html_start = "<html><head><title></title></head><body><div>";
 		String html_end = "</div></body></html>";
-		String body = html_start + data.toString() + html_end;
+		String body = html_start + ((data == null) ? null : data.toString()) + html_end;
 		sendPlain(response, body);
 	}
 
 	private void sendPlain(HttpServletResponse response, Object data) {
 		try {
 			OutputStream out = response.getOutputStream();
-			String body = data.toString();
+			String body = (data == null) ? null : data.toString();
 			logger.info("response.body=" + body);
-			out.write(body.getBytes());
+			if (body != null) {
+				out.write(body.getBytes());
+			}
 			out.flush();
 		} catch (IOException e) {
 			logger.error(e, e);
@@ -232,7 +238,7 @@ public class ApiServlet extends HttpServlet {
 	private Error checkTokenError(HttpServletRequest request, HttpServletResponse response) {
 		Error err = null;
 		String header = request.getHeader("Authorization");
-		if (header != null && tokenMap.get(header) == null) {
+		if (header == null || tokenMap.get(header) == null) {
 			err = new Error("invalidToken");
 			sendJSON(response, err);
 		}

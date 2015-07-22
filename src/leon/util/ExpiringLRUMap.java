@@ -30,6 +30,9 @@ public class ExpiringLRUMap<K, V> {
 	}
 
 	public V get(K k) {
+		if (k == null) {
+			return null;
+		}
 		Long[] expire = expireMap.get(k);
 		if (expire != null && expire.length == 2) {
 			// If expired: (now - createTime) > expireSecond*1000
