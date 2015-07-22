@@ -32,3 +32,4 @@ Authtoken can be obtained and be released at will.
 All interactions between client and restful api is list in the test case, ApiServletTest. 
 It would be the first step to figure out how they works.
 
+Besides ApiServletText, RESTClient is a good cliene I would recommand for test.
